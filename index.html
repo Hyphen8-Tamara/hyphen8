@@ -110,7 +110,7 @@
     #hero {
       min-height: 100vh;
       display: grid;
-      grid-template-rows: 1fr auto;
+      grid-template-rows: 1fr;
       position: relative;
       overflow: hidden;
       border-bottom: 3px solid var(--ink);
@@ -137,8 +137,10 @@
     .hero-inner {
       position: relative; z-index: 2;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 100px 80px 60px;
-      max-width: 1400px; margin: 0 auto; width: 100%;
+      padding: 120px 80px 80px;
+      max-width: 760px;
+      width: 100%;
+      min-height: 100vh;
     }
     .hero-label {
       font-family: 'DM Mono', monospace;
@@ -155,10 +157,10 @@
     .hero-title {
       font-family: 'Syne', sans-serif;
       font-weight: 900;
-      font-size: clamp(4.5rem, 9vw, 10rem);
-      line-height: .88;
+      font-size: clamp(3.5rem, 6vw, 7rem);
+      line-height: .9;
       letter-spacing: -.02em;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
     .hero-title .outline { -webkit-text-stroke: 3px var(--ink); color: transparent; }
     .hero-title .pink-fill { color: var(--hot); }
@@ -217,18 +219,18 @@
 
     /* Letter grid on hero right side */
     .hero-letters {
-      position: absolute; right: 80px; top: 50%;
+      position: absolute; right: 60px; top: 50%;
       transform: translateY(-50%);
       display: grid; grid-template-columns: repeat(3,1fr);
       gap: 0; z-index: 1;
       border: 2px solid var(--ink);
     }
     .hero-letter {
-      width: 110px; height: 110px;
+      width: 90px; height: 90px;
       display: flex; align-items: center; justify-content: center;
       font-family: 'Syne', sans-serif;
       font-weight: 900;
-      font-size: 4.5rem;
+      font-size: 3.5rem;
       border: 1px solid var(--ink);
       line-height: 1;
     }
@@ -618,6 +620,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
       .hero-letters { display: none; }
+      .hero-inner { max-width: 100%; padding: 100px 60px 60px; }
       #about { grid-template-columns: 1fr; }
       .about-right { border-left: none; border-top: 3px solid var(--ink); }
       .caps-grid { grid-template-columns: 1fr 1fr; }
@@ -628,17 +631,38 @@
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .hero-inner { padding: 60px 28px 48px; }
-      #capabilities { padding: 72px 28px; }
-      .method-inner { padding: 72px 28px; }
-      #quote { padding: 72px 28px; }
-      #contact { padding: 72px 28px; }
-      .about-left { padding: 56px 28px; }
-      .about-right { padding: 56px 28px; }
-      .caps-grid { grid-template-columns: 1fr; }
+      .hero-inner { padding: 80px 24px 60px; min-height: 100vh; }
+      .hero-title { font-size: clamp(2.8rem, 10vw, 4rem); }
+      .hero-sub { font-size: 1rem; }
+      .hero-form { flex-direction: column; }
+      .hero-form input { border-right: 2px solid var(--ink); border-bottom: none; }
+      .hero-form button { box-shadow: none; }
+      .hero-letters { display: none; }
+      #capabilities { padding: 60px 24px; }
+      .section-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+      .caps-grid { grid-template-columns: 1fr; border: 2px solid var(--ink); }
+      .cap-card { border-right: none !important; }
       .cap-card.featured { grid-column: span 1; }
-      .cap-card:nth-child(3n) { border-right: 2px solid var(--ink); }
-      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .cap-card.featured-pink { grid-column: span 1; }
+      .method-inner { padding: 60px 24px; }
+      .method-header h2 { font-size: clamp(2.5rem, 8vw, 4rem); }
+      .step { grid-template-columns: 70px 1fr; }
+      .step-num { font-size: 2.5rem; }
+      .step-body { padding: 24px 20px; }
+      #quote { padding: 60px 24px; }
+      #quote blockquote { font-size: clamp(1.4rem, 5vw, 2rem); }
+      #contact { padding: 60px 24px; }
+      .contact-left h2 { font-size: clamp(2.5rem, 8vw, 4rem); }
+      .about-left { padding: 48px 24px; }
+      .about-right { padding: 48px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
+      .f-links { flex-wrap: wrap; gap: 16px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2.4rem, 9vw, 3rem); }
+      .hero-freebie-label { font-size: 0.55rem; }
+      .cap-card { padding: 32px 24px; }
+      .contact-submit { width: 100%; text-align: center; }
     }
   </style>
 </head>
