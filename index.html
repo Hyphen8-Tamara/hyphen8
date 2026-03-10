@@ -651,7 +651,7 @@
       <a href="#about">About</a>
       <a href="#capabilities">Work</a>
       <a href="#method">Method</a>
-      <a href="#contact" class="nav-cta">Book a Call →</a>
+      <a href="https://cal.com/hyphen8studio/30min" target="_blank" class="nav-cta">Book a Call →</a>
     </div>
     <div class="hamburger" aria-label="Menu">
       <span></span><span></span>
@@ -915,7 +915,7 @@
           <label>What's your biggest operational headache?</label>
           <textarea id="c-msg" placeholder="Describe the chaos. We've heard it all."></textarea>
         </div>
-        <button class="contact-submit" onclick="handleContact()">Book a Call →</button>
+        <button class="contact-submit" onclick="window.open('https://cal.com/hyphen8studio/30min', '_blank')">Book a Call →</button>
       </div>
     </div>
   </section>
@@ -966,8 +966,7 @@
       e.preventDefault();
       const val = document.getElementById('hero-email').value;
       if (!val) return;
-      document.getElementById('hero-email').value = '';
-      showToast('✓ Template on its way — check your inbox!');
+      window.location.href = 'https://hyphen8studio.systeme.io/opt-in?email=' + encodeURIComponent(val);
     }
 
     /* ── Contact form ── */
